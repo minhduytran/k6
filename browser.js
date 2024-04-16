@@ -3,16 +3,15 @@ import { browser } from 'k6/experimental/browser';
 export const options = {
   scenarios: {
     ui: {
-      executor: 'constant-vus',
+      executor: 'shared-iterations',
       exec: 'browserTest',
       vus: 2,
-      duration: '1s',
+      iterations: 2,
+      maxDuration: '1s',
       options: {
         browser: {
           type: 'chromium',
-          args: ['--no-sandbox'],
         },
-
       },
     },
   },
@@ -31,7 +30,7 @@ export async function browserTest() {
 
 
   } finally {
-    page.screenshot({ path: 'screenshots/screenshot.png' });
+//    page.screenshot({ path: 'screenshots/screenshot.png' });
     page.close();
   }
 }
