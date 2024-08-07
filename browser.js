@@ -5,7 +5,7 @@ export const options = {
     ui: {
       executor: 'shared-iterations',
       exec: 'browserTest',
-      vus: 2,
+      vus: 2,fwef
       iterations: 2,
       maxDuration: '1s',
       options: {
